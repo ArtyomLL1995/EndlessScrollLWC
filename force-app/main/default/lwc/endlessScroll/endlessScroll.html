@@ -1,0 +1,40 @@
+<template>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" aria-label="Example table of Opportunities with vertical borders">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Name">Name</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Title">Title</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Phone">Phone</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Email">Email</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={contacts} for:item="contact" for:index="index">
+                <tr key={contact.id} class="slds-hint-parent">
+                    <th data-label="Name" scope="row">
+                        <div class="slds-truncate link" title={contact.Name} data-index={index} onclick={navigateToContact}>
+                            {contact.Name}
+                        </div>
+                    </th>
+                    <td data-label="Account site">
+                        <div class="slds-truncate" title={contact.Title}>{contact.Title}</div>
+                    </td>
+                    <td data-label="Phone">
+                        <div class="slds-truncate" title={contact.Phone}>{contact.Phone}</div>
+                    </td>
+                    <td data-label="Email">
+                        <div class="slds-truncate" title={contact.Email}>{contact.Email}</div>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</template>
