@@ -26,15 +26,13 @@ export default class EndlessScroll extends NavigationMixin(LightningElement) {
     handleScroll() {
         const page = document.documentElement
         // if 'true' means we have scrolled to the bottom of the page
-        if (Math.ceil(page.scrollHeight - page.scrollTop) === page.clientHeight) {
-            if (this.scrollSwitcher) {
-                window.removeEventListener('scroll')
-                this.scrollSwitcher = false
-                // fake delay, maybe should remove it
-                setTimeout(() => {
-                    this.showNextContacts()
-                }, 500)
-            }
+        if (Math.ceil(page.scrollHeight - page.scrollTop) === page.clientHeight && this.scrollSwitcher) {
+            window.removeEventListener('scroll')
+            this.scrollSwitcher = false
+            // fake delay, maybe should remove it
+            setTimeout(() => {
+                this.showNextContacts()
+            }, 500)
         } 
     }
 
